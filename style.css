@@ -15,3 +15,19 @@ p {
   font-size: 24px;
   line-height: 2;
 }
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 35px;
+  background: white;
+  color: #4a90e2;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #4a90e2;
+  color: white;
+}
