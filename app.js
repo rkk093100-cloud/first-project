@@ -1,22 +1,11 @@
-function saveNote() {
-  let note = document.getElementById("note").value;
-
-  localStorage.setItem("SPS_note", note);
-
-  alert("Saved!");
-}
-
-window.onload = function () {
-  let oldNote = localStorage.getItem("SPS_note");
-
-  if (oldNote) {
-    document.getElementById("note").value = oldNote;
-  }
-};
-function unlock() {
+async function unlock() {
   let password = document.getElementById("password").value;
 
-  if (password === "sps123") {
+  let hash = await hashPassword(password);
+
+  if (
+    hash === "278e03449b11c11b7c4344579f61b68696530facda5352c5fab1a1e5b4380e89"
+  ) {
     window.location.href = "space.html";
   } else {
     alert("Access denied");
