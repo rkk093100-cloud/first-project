@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <body onload="protectSpace()">
     <div class="container">
       <h1>Private Space</h1>
 
@@ -16,6 +16,9 @@
       <br />
 
       <button onclick="saveNote()">Save</button>
+      <br />
+
+      <button onclick="lockSPS()">Lock SPS</button>
     </div>
 
     <script src="app.js"></script>

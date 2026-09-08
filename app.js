@@ -1,13 +1,31 @@
 async function unlock() {
   let password = document.getElementById("password").value;
 
+  let savedHash = localStorage.getItem("SPS_password_hash");
+
+  if (!savedHash) {
+    alert("No password found. Please create your space first.");
+    window.location.href = "setup.html";
+    return;
+  }
+
   let hash = await hashPassword(password);
 
-  if (
-    hash === "278e03449b11c11b7c4344579f61b68696530facda5352c5fab1a1e5b4380e89"
-  ) {
+  if (hash === savedHash) {
+    sessionStorage.setItem("SPS_unlocked", "true");
     window.location.href = "space.html";
   } else {
     alert("Access denied");
   }
+}
+function protectSpace() {
+  let unlocked = sessionStorage.getItem("SPS_unlocked");
+
+  if (unlocked !== "true") {
+    window.location.href = "lock.html";
+  }
+}
+function lockSPS() {
+  sessionStorage.removeItem("SPS_unlocked");
+  window.location.href = "lock.html";
 }
