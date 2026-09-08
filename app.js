@@ -13,3 +13,12 @@ window.onload = function () {
     document.getElementById("note").value = oldNote;
   }
 };
+function unlock() {
+  let password = document.getElementById("password").value;
+
+  if (password === "sps123") {
+    window.location.href = "space.html";
+  } else {
+    alert("Access denied");
+  }
+}
