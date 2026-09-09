@@ -5,7 +5,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body onload="protectSpace()">
+  <body
+    onload="
+      protectSpace();
+      loadNote();
+    "
+  >
     <div class="container">
       <h1>Private Space</h1>
 
@@ -21,6 +26,7 @@
       <button onclick="lockSPS()">Lock SPS</button>
     </div>
 
+    <script src="crypto.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
