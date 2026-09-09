@@ -44,9 +44,11 @@ async function saveNote() {
     return;
   }
 
-  let password = prompt("Enter your password");
+  let password = sessionStorage.getItem("SPS_session_password");
 
   if (!password) {
+    alert("Session expired. Please unlock SPS again.");
+    window.location.href = "lock.html";
     return;
   }
 
